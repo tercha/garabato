@@ -1,10 +1,10 @@
-<h1 style="color: #f0d">Productos</h1>
+<h1 style="color: #f0f">Productos</h1>
 
 <% @productos.in_groups_of(3) do |group| %>
   <div class="row">
     <% group.compact.each do |producto| %>
       <div class="col-md-4">
-        <%= image_tag producto.logo_url, width: '100%' if producto.logo.present?%>
+        <%= image_tag producto.logo_url, width: '350px', height:'250px' if producto.logo.present?%>
         <h4><%= link_to producto.nombre, producto %></h4>
         <%= producto.categoria %>
       </div>

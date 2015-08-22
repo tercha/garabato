@@ -1,19 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Logo:</strong>
-  <%= image_tag(@producto.logo_url, :width => 600) if @producto.logo.present? %>
-</p>
+<div class="row">
+  <div class="col-md-9">
+    <%= image_tag(@producto.logo_url, width: '100%') if @producto.logo.present? %>
+  </div>
 
-<p>
-  <strong>Categoria:</strong>
-  <%= @producto.categoria %>
-</p>
-
-<p>
-  <strong>Nombre:</strong>
-  <%= @producto.nombre %>
-</p>
-
-<%= link_to 'Edit', edit_producto_path(@producto) %> |
-<%= link_to 'Back', productos_path %>
+  <div class="col-md-3">
+    <p><b>Nombre: </b><%= @producto.nombre %></p>
+    <p><b>Descripción: </b><%= @producto.categoria %></p>
+    <p>
+      <%= link_to 'Editar', edit_producto_path(@producto) %> |
+      <%= link_to 'Borrar', @producto, data: { confirm: 'Are you sure?' }, method: :delete %> |
+      <%= link_to 'Regresar', productos_path %>
+    </p>
+  </div>
+</div>
